@@ -16,3 +16,25 @@ var options = {
   }
 }
 app.use(express.static('public', options))
+
+var express = require('express')
+var https = require('https')
+var http = require('http')
+var app = express()
+
+http.createServer(app).listen(80)
+https.createServer(options, app).listen(443)
+
+// req.body
+var app = require('express')();
+var bodyParser = require('body-parser');
+var multer = require('multer'); // v1.0.5
+var upload = multer(); // for parsing multipart/form-data
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+app.post('/profile', upload.array(), function (req, res, next) {
+  console.log(req.body);
+  res.json(req.body);
+});
