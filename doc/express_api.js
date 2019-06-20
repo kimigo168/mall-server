@@ -38,3 +38,6 @@ app.post('/profile', upload.array(), function (req, res, next) {
   console.log(req.body);
   res.json(req.body);
 });
+
+res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true });
+res.cookie('rememberme', '1', { expires: new Date(Date.now() + 900000), httpOnly: true });

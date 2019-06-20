@@ -10,7 +10,7 @@ const routes = require('./routes')
 const app = new express()
 routes(app)
 
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); 
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'public'))) // 静态资源路径
 
 // view engine set
