@@ -5,7 +5,7 @@ const Goods = require('../models/goods')
 const Users = require('../models/users')
 
 // connect db
-mongoose.connect('mongodb://127.0.0.1:27017/mall')
+mongoose.connect('mongodb://127.0.0.1:27017/mall', { useNewUrlParser: true,  useCreateIndex: true })
 
 let db = mongoose.connection;
 db.on('connected', () => {
@@ -132,6 +132,15 @@ router.post('/addCart', (req, res, next) => {
 
     }
   })
+})
+
+// add goods
+router.post('/addGoods', (req, res, next) => {
+  let good = req.body
+  console.log('good', good)
+  res.json({ status: '1', msg: err.msg })
+  return
+  Goods.create(good)
 })
 
 module.exports = router

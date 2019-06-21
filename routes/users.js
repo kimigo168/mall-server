@@ -304,3 +304,5 @@ router.get('/orderDetail', (req, res, next) => {
     }
   })
 })
+
+module.exports = router

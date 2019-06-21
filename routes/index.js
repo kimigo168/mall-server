@@ -22,7 +22,8 @@ module.exports = (app) => {
 
     // render the error page
     res.status(err.status || 500)
-    res.render('error')
+    // res.render('error')
+    console.log('err', err)
+    res.json({status: '1', msg: '', result: ''})
   })
-
 }
